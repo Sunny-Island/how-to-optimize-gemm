@@ -44,11 +44,11 @@ int main()
     /* Allocate space for the matrices */
     /* Note: I create an extra column in A to make sure that
        prefetching beyond the matrix does not cause a segfault */
-    a = ( double * ) malloc( lda * (k+1) * sizeof( double ) );  
-    b = ( double * ) malloc( ldb * n * sizeof( double ) );
-    c = ( double * ) malloc( ldc * n * sizeof( double ) );
-    cold = ( double * ) malloc( ldc * n * sizeof( double ) );
-    cref = ( double * ) malloc( ldc * n * sizeof( double ) );
+    a = ( double * ) aligned_alloc(128, lda * (k+1) * sizeof( double ) );  
+    b = ( double * ) aligned_alloc(128, ldb * n * sizeof( double ) );
+    c = ( double * ) aligned_alloc(128, ldc * n * sizeof( double ) );
+    cold = ( double * ) aligned_alloc(128, ldc * n * sizeof( double ) );
+    cref = ( double * ) aligned_alloc(128, ldc * n * sizeof( double ) );
 
     /* Generate random matrices A, B, Cold */
     random_matrix( m, k, a, lda );

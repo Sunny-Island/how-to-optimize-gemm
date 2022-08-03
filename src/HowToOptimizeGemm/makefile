@@ -1,4 +1,4 @@
-OLD  := MMult0
+OLD  := MMult1
 NEW  := MMult0
 #
 # sample makefile
@@ -6,7 +6,7 @@ NEW  := MMult0
 
 CC         := gcc
 LINKER     := $(CC)
-CFLAGS     := -O2 -Wall -msse3
+CFLAGS     := -O2 -Wall -msse3 -mfma
 LDFLAGS    := -lm
 
 UTIL       := copy_matrix.o \
